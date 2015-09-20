@@ -102,7 +102,24 @@ plot(data3,type="l",xlab="5-minute interval",ylab="Number of steps",main="Averag
 
 ![](PA1_template_files/figure-html/unnamed-chunk-5-1.png) 
 
+We can find the 5-minute interval corresponding to the maximum average number of steps. It seems to be "835" (which really is 8:35 AM)
 
+
+```r
+max(data3$steps)
+```
+
+```
+## [1] 206.1698
+```
+
+```r
+data3$interval[data3$steps==max(data3$steps)]
+```
+
+```
+## [1] 835
+```
 
 ## Part 4: Imputing missing values
 
@@ -155,7 +172,7 @@ newData2<-dcast(melt,date~variable,sum)
 hist(newData2$steps,breaks=20,col="grey",main="Total number of steps per day",xlab="Steps per day",ylab="Count (Days)")
 ```
 
-![](PA1_template_files/figure-html/unnamed-chunk-8-1.png) 
+![](PA1_template_files/figure-html/unnamed-chunk-9-1.png) 
 
 We then calculate new values for mean and median total number of steps per day.
 
@@ -264,4 +281,4 @@ g<-g+facet_grid(day~.)
 g
 ```
 
-![](PA1_template_files/figure-html/unnamed-chunk-12-1.png) 
+![](PA1_template_files/figure-html/unnamed-chunk-13-1.png) 
